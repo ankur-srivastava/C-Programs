@@ -9,6 +9,8 @@ struct node{
 
 void insert(struct node *new, struct node *t);
 void in(struct node *t);
+void delete(int data);
+struct node *find_node(int data, struct node *t);
 
 int main(){
 	int a[] = {30, 25, 42, 10, 50};
@@ -29,6 +31,9 @@ int main(){
 	printf("Inorder Traversal of BST gives ");
 	in(&root);
 	printf("\n");
+	printf("Let's delete the Node with value 30 \n");
+	//Delete functionality has not been implemented completely. The basic idea has been coded.
+	//delete(30);
 	return 0;
 }
 
@@ -58,4 +63,41 @@ void in(struct node *t){
 	in(t->l);
 	printf("%d ", t->data);
 	in(t->r);
+}
+
+//Basic Idea has been presented here. Swap function needs to be implemented.
+void delete(int data){
+	struct node *del_node = find_node(data, &root);
+	if(del_node != NULL){
+		if(del_node->l == NULL && del_node->r == NULL){
+			//delete
+			printf("Leaf Node \n");
+		}else if(del_node->l != NULL){
+			//delete
+			printf("Find Max from LST of %d \n", del_node->data);
+			//struct node *min = findMin(del_node);
+			//swap(del_node, min);
+		}else if(del_node->r != NULL){
+			//delete
+			printf("Find Min from RST of %d \n", del_node->data);
+			//struct node *max = findMax(del_node);
+			//swap(del_node, max);
+		}
+		
+	}
+}
+
+struct node *find_node(int data, struct node *t){
+	if(data == t->data){
+		return t;
+	}else{
+		if(data < t->data){
+			return find_node(data, t->l);
+		}else if(data > t->data){
+			return find_node(data, t->r);
+		}else{
+			printf("Node not found \n");
+			return 0;
+		}
+	}
 }
