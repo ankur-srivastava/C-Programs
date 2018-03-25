@@ -3,9 +3,9 @@
 
 /*
 	Author: @ankur
-	Date: March 24, 2018
+	Date: March 25, 2018
 	Version: 0.1
-	This Program illustrates Breadth First Traversal.  
+	This Program illustrates Depth First Traversal.  
 */
 
 #define MAXV 6 /* maximum number of vertices */
